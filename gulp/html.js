@@ -14,6 +14,11 @@ let htmlCompile = function (opts) {
 
   // Build HTML for distribution.
   gulp.task(taskName, ()=> {
+    gulp.src(`${global.paths.src}*.html`)
+      .pipe(plumber())
+      .pipe(gulpif(dist, replace('/bower_components', '../..')))
+      .pipe(gulp.dest(dest));
+
     gulp.src(global.paths.src + global.comp.html)
       .pipe(plumber())
       .pipe(replace('</dom-module>',
