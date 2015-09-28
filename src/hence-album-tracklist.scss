@@ -1,0 +1,129 @@
+// styleguide:ignore:start
+/***************************
+** Essentials Libraries
+****************************/
+// Core
+@import 'compass';
+// Grid/Responsive
+@import 'susy';
+@import 'breakpoint';
+// Spacing
+@import 'modular-scale';
+
+/***************************
+** Optional Libraries
+****************************/
+// Font awesome, do not include unless needed
+//$fa-font-path: '/bower_components/font-awesome/fonts/' !default;
+//@import 'font-awesome';
+// styleguide:ignore:end
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/***************************
+Component Elements
+
+Styleguide 1.0
+*/
+/***************************
+Component Variations
+
+Styleguide 2.0
+*/
+
+/***************************
+Colors
+
+$dark-blue - Deep dark blue
+
+markup:
+<div style="background: {$modifiers};" class="styleguide-color">{$modifiers}</div>
+
+Styleguide 1.1
+*/
+@import "../bower_components/hence-card/src/_styles/vars";
+
+/***************************
+Default Component
+
+markup:
+<hence-album-tracklist></hence-album-tracklist>
+
+Styleguide 2.1
+*/
+// Styles for the component wrapper built by shadow dom, any any component globals to apply
+:host {
+  $ms-ratio: $minor-second; // define the modular-scale for this component; DO NO REMOVE, you've been warned. (¬_¬)ﾉ
+
+  & {
+    // xs view
+    @include breakpoint(32em) {
+      @include span(1 of 1);
+    }
+
+    // tablet view
+    @include breakpoint(48em) {
+      &:nth-of-type(odd) {
+        @include clearfix;
+        @include span(1 of 2);
+
+        clear: both;
+      }
+      &:nth-of-type(even) {
+        @include span(1 of 2 last);
+      }
+      &:only-of-type {
+        @include span(1 of 1);
+      }
+    }
+
+    // desktop view
+    @include breakpoint(62em) {
+    }
+
+    // large desktop view
+    @include breakpoint(75em) {
+    }
+  }
+}
+
+
+/***************************
+Typography
+
+markup:
+<span id="greeting">Greeting</span>
+
+Styleguide 1.2
+*/
+
+.fullWidth {
+  color: #000;
+  margin-left: -3%;
+  padding: 16px 0 0;
+  width: 106%;
+}
+.description {
+  padding-bottom: 0;
+}
+.callToAction {
+  background: #00f;
+  position: absolute;
+  right: 16px;
+  top: 274px;
+}
+
+.trackTotal {
+  background: #00f;
+  color: #fff;
+  min-height: inherit;
+  padding: 8px 16px;
+}
+
+.trackTotal paper-item-body {
+  font-size: 20px;
+}
+
+.playTrack {
+  float: right;
+  margin-top: -36px;
+}
+
